@@ -5,19 +5,21 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
 import 'rxjs/add/operator/map';
-import {AuInputModule} from "./lib/au-input.module";
+// import {AuInputModule} from "./lib/au-input.module";
+import { AuFaInputComponent } from './lib/au-fa-input/au-fa-input.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AuFaInputComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-     AuInputModule
+    HttpModule
+    // AuInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,21 @@
+.icon {
+  width: 20px;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 2px;
+}
 
-@import "../common/common.css";
+:host {
+  background: white;
+  border: 1px solid lightgray;
+  padding: 1px 0;
+  display: inline-block;
+}
 
-@import "../common/_default-theme.scss";
-
-@import "_au-fa-input-red-theme.scss";
+input {
+  border: none;
+  outline: none;
+  height: 100%;
+  margin: 1px 0;
+  box-sizing: border-box;
+}

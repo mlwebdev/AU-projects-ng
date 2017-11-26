@@ -1,40 +1,31 @@
-import {Component, Input, ContentChild, AfterContentInit, HostBinding, ViewEncapsulation} from '@angular/core';
-import {InputRefDirective} from "../common/input-ref.directive";
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
-    selector: 'au-fa-input',
-    templateUrl: './au-fa-input.component.html',
-    styleUrls: ['./au-fa-input.component.css']
+  selector: 'au-fa-input',
+  templateUrl: './au-fa-input.component.html',
+  styleUrls: ['./au-fa-input.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AuFaInputComponent implements AfterContentInit {
+export class AuFaInputComponent implements OnInit {
+  
+  @Input()
+  icon: string;
+  
+  @Input()
+  placeholder = '';
 
-    @Input()
-    icon: string;
+  constructor() { }
 
-    @ContentChild(InputRefDirective)
-    input: InputRefDirective;
-
-    ngAfterContentInit() {
-        if (!this.input) {
-            console.error('the au-fa-input needs an input inside its content');
-        }
+  ngOnInit() {
+  }
+  
+  get classes(){
+    const cssClasses = {};
+    
+    if (this.icon){
+      cssClasses['fa-' + this.icon]  = true;
     }
-
-    @HostBinding('class.input-focus')
-    get isInputFocus() {
-        return this.input ? this.input.focus : false;
-    }
-
-
-    get classes() {
-
-        const cssClasses = {};
-
-        if (this.icon) {
-            cssClasses['fa-' + this.icon] = true;
-        }
-
-        return cssClasses;
-    }
+    return cssClasses;
+  }
 
 }
