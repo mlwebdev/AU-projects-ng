@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
   selector: 'au-fa-input',
@@ -7,10 +7,25 @@ import { Component, OnInit } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AuFaInputComponent implements OnInit {
+  
+  @Input()
+  icon: string;
+  
+  @Input()
+  placeholder = '';
 
   constructor() { }
 
   ngOnInit() {
+  }
+  
+  get classes(){
+    const cssClasses = {};
+    
+    if (this.icon){
+      cssClasses['fa-' + this.icon]  = true;
+    }
+    return cssClasses;
   }
 
 }
